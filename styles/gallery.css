@@ -1,0 +1,432 @@
+
+/*-- -------------------------- -->
+<---          Gallery           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #gallery-453 {
+        /* centers the inline-block button */
+        text-align: center;
+        padding: var(--sectionPadding);
+        padding-top: 140px;
+        padding-bottom: 0px;
+    }
+    #gallery-453 .cs-container {
+        width: 100%;
+        /* changes to 1280px at tablet */
+        max-width: 34.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+        position: relative;
+    }
+    #gallery-453 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+    }
+
+    #gallery-453 .cs-button-group {
+        width: 100%;
+        max-width: 37.5rem;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+        column-gap: 1.5rem;
+    }
+    #gallery-453 .cs-button {
+        font-size: 1rem;
+        line-height: 1.5em;
+        padding: 0 0 0 1rem;
+        color: var(--bodyTextColor);
+        background-color: transparent;
+        border: none;
+        position: relative;
+        transition: color 0.3s;
+    }
+    #gallery-453 .cs-button:before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--primary);
+        /* starting value, this will animate to 1 when the button is hovered, and when the active class is on it */
+        opacity: 0;
+        /* prevents mouse from interacting with it */
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        top: 50%;
+        /* start -20px left of the button */
+        left: -1.25rem;
+        transform: translateY(-50%);
+        /* transition to and from the active class styles on hover*/
+        transition:
+            opacity 0.3s,
+            left 0.3s;
+    }
+    #gallery-453 .cs-button:hover {
+        color: var(--primary);
+        cursor: pointer;
+    }
+    #gallery-453 .cs-button:hover:before {
+        left: 0;
+        opacity: 1;
+    }
+    #gallery-453 .cs-button.cs-active {
+        /* when the button is active, add these styles to the button and its pseudo */
+        font-weight: 700;
+        color: var(--primary);
+    }
+    #gallery-453 .cs-button.cs-active:before {
+        /* animate to these values when the cs-active class is added to the button and on hover */
+        left: 0;
+        opacity: 1;
+    }
+    #gallery-453 .cs-gallery {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        /* 48px - 64px */
+        margin-bottom: clamp(3rem, 3vw, 4rem);
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        left: 0;
+        /* 16px - 20px */
+        gap: clamp(1rem, 1vw, 1.25rem);
+        transition:
+            transform 0.7s,
+            opacity 0.3s,
+            visibility 0.5s,
+            top 0.3s,
+            left 0.3s;
+        /* makes the transform scaling origin the top left corner, dictates the direction by which the scale transforms animate towards */
+        transform-origin: left top;
+    }
+    #gallery-453 .cs-gallery.cs-hidden {
+        /* by using visibility:hidden instead of display:none, we can see the animations from the opacity and transforms, display:none won't render animations. */
+        visibility: hidden;
+        /* prevents the mouse from interacting with it */
+        pointer-events: none;
+        /* hidden galleries have a 0 opacity, and we animate the opacity to 1 when they become active */
+        opacity: 0;
+        /* this top and left value help control the animation, by setting it to position absolute and left 0, the gallery won't fly off screen to the left, it will stop its position to be at the left edge of the .cs-container (left: 0). Same for the bottom:0 value, the gallery won't go past that posiiton when it animates */
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        /* prevents the hidden galleries from overflowing the section, and makes a nice animations to transition to and from */
+        transform: scaleY(0) scaleX(0);
+    }
+    #gallery-453 .cs-gallery.cs-hidden .cs-image {
+        /* when gallery is hidden, add these styles to the cs-image to animate from when cs-hidden is removed from the .cs-gallery */
+        transform: translateY(2.1875rem);
+        opacity: 0;
+    }
+    #gallery-453 .cs-image {
+        border-radius: 0.25rem;
+        width: clamp(47%, 42.5vw, 48.5%);
+        /* changes at tablet */
+        aspect-ratio: 0.72985782;
+        /* clips the image corners */
+        overflow: hidden;
+        display: block;
+        position: relative;
+        /* when .cs-hidden is removed from the .cs-gallery, reset these values and animate from their hidden styles */
+        transform: translateY(0rem);
+        opacity: 1;
+        transition:
+            opacity 0.6s,
+            transform 0.6s;
+    }
+    #gallery-453 .cs-image:nth-of-type(1) {
+        /* these delays stagger the reveal of each image so they all go one after the other and not all at once */
+        transition-delay: 0.15s;
+    }
+    #gallery-453 .cs-image:nth-of-type(2) {
+        transition-delay: 0.3s;
+    }
+    #gallery-453 .cs-image:nth-of-type(3) {
+        transition-delay: 0.45s;
+    }
+    #gallery-453 .cs-image:nth-of-type(4) {
+        transition-delay: 0.6s;
+    }
+    #gallery-453 .cs-image:nth-of-type(5) {
+        transition-delay: 0.75s;
+    }
+    #gallery-453 .cs-image:nth-of-type(6) {
+        transition-delay: 0.9s;
+    }
+    #gallery-453 .cs-image:nth-of-type(7) {
+        transition-delay: 1.05s;
+    }
+    #gallery-453 .cs-image:nth-of-type(8) {
+        transition-delay: 1.2s;
+    }
+    #gallery-453 .cs-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* makes it act like a background image */
+        object-fit: cover;
+    }
+}
+/* Tablet - 600px */
+@media only screen and (min-width: 48rem) {
+    #gallery-453 .cs-container {
+        max-width: 80rem;
+    }
+    #gallery-453 .cs-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    #gallery-453 .cs-flex {
+        width: 50%;
+    }
+    #gallery-453 .cs-title {
+        margin: 0;
+    }
+    #gallery-453 .cs-button-group {
+        width: auto;
+    }
+    #gallery-453 .cs-gallery {
+        justify-content: space-between;
+    }
+    #gallery-453 .cs-image {
+        /* 171px - 305px */
+        width: clamp(10.6875rem, 23.3%, 19.0625rem);
+        aspect-ratio: 0.71529412;
+    }
+}
+
+                                
+
+/*-- -------------------------- -->
+<---          Gallery           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #gallery-973 {
+        padding: var(--sectionPadding);
+    }
+    #gallery-973 .cs-container {
+        width: 100%;
+        /* changes to 1280px at small desktop */
+        max-width: 34.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+    }
+    #gallery-973 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+    }
+
+    #gallery-973 .cs-title {
+        max-width: 20ch;
+    }
+    #gallery-973 .cs-gallery {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #gallery-973 .cs-image {
+        width: 50%;
+        aspect-ratio: 1;
+        /* clips the image corners */
+        overflow: hidden;
+        display: block;
+        position: relative;
+    }
+    #gallery-973 .cs-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* makes it act like a background image */
+        object-fit: cover;
+    }
+}
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #gallery-973 .cs-container {
+        max-width: 80rem;
+    }
+    #gallery-973 .cs-image {
+        width: 25%;
+        height: 25rem;
+    }
+}
+
+/*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #reviews-508 {
+        padding: var(--sectionPadding);
+        padding-top: 0px;
+    }
+    #reviews-508 .cs-container {
+        width: 100%;
+        /* changes to 1280px at tablet */
+        max-width: 34.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    #reviews-508 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        max-width: 32.625rem;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+    }
+
+    #reviews-508 .cs-text {
+        margin-bottom: 1rem;
+    }
+    #reviews-508 .cs-text:last-of-type {
+        margin-bottom: 2rem;
+    }
+    #reviews-508 .cs-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #fff;
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+    }
+    #reviews-508 .cs-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0.25rem;
+        transition: width 0.3s;
+    }
+    #reviews-508 .cs-button-solid:hover:before {
+        width: 100%;
+    }
+    #reviews-508 .cs-review {
+        width: 100%;
+        max-width: 39.5rem;
+        /* 24px - 60px top & bottom */
+        /* 16px - 60px left & right */
+        padding: clamp(1.5rem, 5.8vw, 3.75rem) clamp(1rem, 5vw, 3.75rem);
+        border: 1px solid #f1f1f4;
+        /* prevents padding from affecting width & height */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #reviews-508 .cs-review-p {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        line-height: 1.5em;
+        width: 100%;
+        /* 16px - 32px */
+        margin: 0 0 clamp(1rem, 3vw, 2rem) 0;
+        color: var(--bodyTextColor);
+    }
+    #reviews-508 .cs-info {
+        display: inline-block;
+    }
+    #reviews-508 .cs-profile {
+        width: 3.75rem;
+        height: auto;
+        margin-right: 1.25rem;
+        border-radius: 50%;
+        display: block;
+    }
+    #reviews-508 .cs-name {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        line-height: 1.5em;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--headerColor);
+        display: block;
+    }
+    #reviews-508 .cs-location {
+        /* 13px - 16px */
+        font-size: clamp(0.8125rem, 1.5vw, 1rem);
+        line-height: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--headerColor);
+        display: block;
+    }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #reviews-508 .cs-container {
+        max-width: 80rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    #reviews-508 .cs-review {
+        width: 73%;
+    }
+}
+
+                                
